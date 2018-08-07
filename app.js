@@ -1,46 +1,66 @@
 document.getElementById('test-api').addEventListener('click',pullEndpoint);
 document.getElementById('header_remove_button').addEventListener('click',removeHeaderInputField);
 document.getElementById('query_remove_button').addEventListener('click',removeQueryInputField);
+
+
 document.getElementById('add-header').addEventListener('click',addHeaderInputField);
+document.getElementById('add-query').addEventListener('click',addQueryInputField);
+
+
+function addQueryInputField(){
+    query = `
+        <div id="query-item" class="add-margin-top">
+            <div>
+                <input type="text" placeholder="Name" class="col-4">&nbsp;=
+                <input type="text" placeholder="Value">
+                &nbsp;<span class="x-symbol" id="query_remove_button" onclick="removeQueryInputField()">&times;</span>
+            </div>
+        </div>
+    `;
+    document.getElementById('query_param').insertAdjacentHTML('beforeend',query);
+}
 
 function addHeaderInputField(){
 
-    document.getElementById('header-form').appendChild(`
-        <div id="header-item">
-            <select name="headers" id="headers">
-                <option value="A-IM">A-IM</option>
-                <option value="Accept">Accept</option>
-                <option value="Accept-Charset">Accept-Charset</option>
-                <option value="Accept-Encoding">Accept-Encoding</option>
-                <option value="Accept-Language">Accept-Language</option>
-                <option value="Accept-Datetime">Accept-Datetime</option>
-                <option value="Access-Control-Request-Method">Access-Control-Request-Method</option>
-                <option value="Authorization">Authorization</option>
-                <option value="Cache-Control">Cache-Control</option>
-                <option value="Connection">Connection</option>
-                <option value="Content-Length">Content-Length</option>
-                <option value="Content-MD5">Content-MD5</option>
-                <option value="Content-Type">Content-Type</option>
-                <option value="Cookie">Cookie</option>
-                <option value="Date">Date</option>
-                <option value="Expect">Expect</option>
-                <option value="Forwarded">Forwarded</option>
-                <option value="From">From</option>
-                <option value="Host">Host</option>
-            </select>
-            :&nbsp;<input type="text">
-            <span class="x-symbol" id="x-button">&times;</span>
-        </div>
-    `);
+    header = `
+    <div id="header-item" class="add-margin-top">
+        <select name="headers" id="headers" class="custom-select col-4">
+            <option value="A-IM">A-IM</option>
+            <option value="Accept">Accept</option>
+            <option value="Accept-Charset">Accept-Charset</option>
+            <option value="Accept-Encoding">Accept-Encoding</option>
+            <option value="Accept-Language">Accept-Language</option>
+            <option value="Accept-Datetime">Accept-Datetime</option>
+            <option value="Access-Control-Request-Method">Access-Control-Request-Method</option>
+            <option value="Authorization">Authorization</option>
+            <option value="Cache-Control">Cache-Control</option>
+            <option value="Connection">Connection</option>
+            <option value="Content-Length">Content-Length</option>
+            <option value="Content-MD5">Content-MD5</option>
+            <option value="Content-Type">Content-Type</option>
+            <option value="Cookie">Cookie</option>
+            <option value="Date">Date</option>
+            <option value="Expect">Expect</option>
+            <option value="Forwarded">Forwarded</option>
+            <option value="From">From</option>
+            <option value="Host">Host</option>
+        </select>
+        :&nbsp;<input type="text" placeholder="Value">
+        <span class="x-symbol" id="header_remove_button" onclick="removeHeaderInputField()">&times;</span>
+    </div>
+    `;
+
+    document.getElementById('header-form').insertAdjacentHTML('beforeend',header);
 
 }
 
 function removeHeaderInputField(){
-    document.getElementById('header-item').innerHTML = '';
+    document.getElementById('header-item').parentNode.removeChild(document.getElementById('header-item'))
 }
 
 function removeQueryInputField(){
-    document.getElementById('query-item').innerHTML = '';
+    document.getElementById('query-item').parentNode.removeChild(document.getElementById('query-item'))
+    // document.getElementById('query-item').innerHTML = '';
 }
 
 
@@ -52,7 +72,7 @@ function pullEndpoint(){
     
     if(method == "POST"){
         data = '';
-        url += `?{}`
+        url += `?{data}`
         fetch(url, {
             method: method, // *GET, POST, PUT, DELETE, etc.
             // mode: "cors", // no-cors, cors, *same-origin
@@ -138,7 +158,4 @@ function pullEndpoint(){
         })
         .catch(err => console.log(err));
     }
-
 }
-
-    

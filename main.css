@@ -53,3 +53,11 @@ input[type=text]{
     border-radius: 5px;
     padding: .375rem 1.75rem .375rem .75rem;
 }
+
+.add-margin-top{
+    margin-top: 5px;
+}
+
+.reset-margin-left{
+    margin-left: -15px;
+}

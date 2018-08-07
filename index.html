@@ -30,30 +30,35 @@
                     <div>
                         <h6>URL</h6>
                         <input type="text" class="col-6" id="url">
-                        <br><br>
-                        <div class="query_param">
-                            <h6>Query Parameter</h6>
-                            <div id="query-item">
-                                <input type="text" placeholder="Name">&nbsp;=
-                                <input type="text" placeholder="Value">
-                                &nbsp;<span class="x-symbol">&times;</span>
-                            </div>
-                            
-                            <br>
-                            <button class="btn btn-primary">Add Query</button>
-                        </div>
-                        <br>
                     </div>
+                    <br><br>
                     <!-- URL Ends Here -->
 
-
+                    <div class="col-12 reset reset-margin-left">
+                        <h6>Query Parameter</h6>
+                        <div id="query_param">
+                            <div id="query-item" class="add-margin-top">
+                                <div>
+                                    <input type="text" placeholder="Name" class="col-4">&nbsp;=
+                                    <input type="text" placeholder="Value">
+                                    &nbsp;<span class="x-symbol" id="query_remove_button" onclick="removeQueryInputField()">&times;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" id="add-query">Add Query</button>
+                    </div>
+                    
+                    
+                    <br>
+                    <br>
 
                     <!-- Headers -->
                     <div class="header">
                         <h6>Headers</h6>
                         <form class="form-group">
                             <div id="header-form">
-                                    <div id="header-item">
+                                    <div id="header-item" class="add-margin-top">
                                         <select name="headers" id="headers" class="custom-select col-4">
                                             <option value="A-IM">A-IM</option>
                                             <option value="Accept">Accept</option>
@@ -76,7 +81,7 @@
                                             <option value="Host">Host</option>
                                         </select>
                                         :&nbsp;<input type="text" placeholder="Value">
-                                        <span class="x-symbol" id="header_remove_button">&times;</span>
+                                        <span class="x-symbol" id="header_remove_button" onclick="removeHeaderInputField()">&times;</span>
                                     </div>
                             </div>
                         </form>
