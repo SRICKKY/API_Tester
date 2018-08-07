@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API Tester</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body class="req-color">
+    <div class="container margin-30 container-color">
+        
+        <div class="padding-50">
+            <h3>API Tester</h3>
+            <br><br>
+
+            <div class="row">
+                <div class="col-4">
+                    <h5>Method</h5>
+                    <select name="method" id="method" class="custom-select col-4"> 
+                        <option value="GET" id="get">GET</option>
+                        <option value="POST" id="post">POST</option>
+                        <option value="PUT" id="put">PUT</option>
+                        <option value="DELETE" id="delete">DELETE</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    <!-- URL -->
+                    <div>
+                        <h6>URL</h6>
+                        <input type="text" class="col-6" id="url">
+                        <br><br>
+                        <div class="query_param">
+                            <h6>Query Parameter</h6>
+                            <div id="query-item">
+                                <input type="text" placeholder="Name">&nbsp;=
+                                <input type="text" placeholder="Value">
+                                &nbsp;<span class="x-symbol">&times;</span>
+                            </div>
+                            
+                            <br>
+                            <button class="btn btn-primary">Add Query</button>
+                        </div>
+                        <br>
+                    </div>
+                    <!-- URL Ends Here -->
+
+
+
+                    <!-- Headers -->
+                    <div class="header">
+                        <h6>Headers</h6>
+                        <form class="form-group">
+                            <div id="header-form">
+                                    <div id="header-item">
+                                        <select name="headers" id="headers" class="custom-select col-4">
+                                            <option value="A-IM">A-IM</option>
+                                            <option value="Accept">Accept</option>
+                                            <option value="Accept-Charset">Accept-Charset</option>
+                                            <option value="Accept-Encoding">Accept-Encoding</option>
+                                            <option value="Accept-Language">Accept-Language</option>
+                                            <option value="Accept-Datetime">Accept-Datetime</option>
+                                            <option value="Access-Control-Request-Method">Access-Control-Request-Method</option>
+                                            <option value="Authorization">Authorization</option>
+                                            <option value="Cache-Control">Cache-Control</option>
+                                            <option value="Connection">Connection</option>
+                                            <option value="Content-Length">Content-Length</option>
+                                            <option value="Content-MD5">Content-MD5</option>
+                                            <option value="Content-Type">Content-Type</option>
+                                            <option value="Cookie">Cookie</option>
+                                            <option value="Date">Date</option>
+                                            <option value="Expect">Expect</option>
+                                            <option value="Forwarded">Forwarded</option>
+                                            <option value="From">From</option>
+                                            <option value="Host">Host</option>
+                                        </select>
+                                        :&nbsp;<input type="text" placeholder="Value">
+                                        <span class="x-symbol" id="header_remove_button">&times;</span>
+                                    </div>
+                            </div>
+                        </form>
+                        <br>
+                        <button class="btn btn-primary" id="add-header">Add Headers</button>
+                    </div>
+                    <!-- Headers Ends Here -->
+
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test API Button -->
+            <div class="padding-50">
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-success btn-lg btn-block" id="test-api">Test API</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Test API Button Ends Here -->
+
+            <!-- Output Box -->
+            <div class="padding-50">
+                <div class="row">
+                    <div class="col-6"><h1 style="float: left;">Output</h1></div>
+                    <div class="col-6"><p class="text-success" style="float: right;" id="status-code"></p></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="outer-box">
+                            <code class="output-box" id="output-box"></code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Output Box Ends Here -->
+
+        </div>
+    </div>
+    <!-- End of container -->
+    <script src="renderjson.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
